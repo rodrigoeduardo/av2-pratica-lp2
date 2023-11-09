@@ -1,11 +1,11 @@
-package br.ufrn.imd;
+package br.ufrn.imd.visao;
 
 import br.ufrn.imd.dao.PessoaDAO;
 import br.ufrn.imd.modelo.ContaCorrente;
 import br.ufrn.imd.modelo.Pessoa;
 import br.ufrn.imd.modelo.SeguroVida;
 
-public class Main {
+public class ImpostoRendaPF {
     public static void main(String[] args) {
         PessoaDAO daoP = new PessoaDAO();
 

@@ -1,6 +1,6 @@
 package br.ufrn.imd.modelo;
 
-public class ContaCorrente {
+public class ContaCorrente implements ITributavel {
     private String agencia;
     private String numero;
     private double saldo;
@@ -30,6 +30,11 @@ public class ContaCorrente {
         cc.depositar(valor);
 
         return true;
+    }
+
+    @Override
+    public double calcularTributos() {
+        return this.saldo * 0.0038;
     }
 
     public String getAgencia() {

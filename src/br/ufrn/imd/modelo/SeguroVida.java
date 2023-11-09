@@ -1,6 +1,6 @@
 package br.ufrn.imd.modelo;
 
-public class SeguroVida {
+public class SeguroVida implements ITributavel {
     private int numero;
     private String beneficiado;
     private double valor;
@@ -15,6 +15,11 @@ public class SeguroVida {
         this.beneficiado = beneficiado;
         this.valor = valor;
         this.taxa = 31.5;
+    }
+
+    @Override
+    public double calcularTributos() {
+        return this.taxa;
     }
 
     public int getNumero() {
