@@ -6,11 +6,15 @@ public class SeguroVida {
     private double valor;
     private double taxa;
 
-    public SeguroVida(int numero, String beneficiado, double valor, double taxa) {
+    public SeguroVida() {
+        this.taxa = 31.5;
+    }
+
+    public SeguroVida(int numero, String beneficiado, double valor) {
         this.numero = numero;
         this.beneficiado = beneficiado;
         this.valor = valor;
-        this.taxa = taxa;
+        this.taxa = 31.5;
     }
 
     public int getNumero() {

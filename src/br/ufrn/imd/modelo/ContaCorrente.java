@@ -5,6 +5,8 @@ public class ContaCorrente {
     private String numero;
     private double saldo;
 
+    public ContaCorrente() {}
+
     public ContaCorrente(String agencia, String numero) {
         this.agencia = agencia;
         this.numero = numero;
@@ -48,5 +50,9 @@ public class ContaCorrente {
 
     public double getSaldo() {
         return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 }
