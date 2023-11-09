@@ -1,6 +1,6 @@
 package br.ufrn.imd.modelo;
 
-public class Pessoa {
+public class Pessoa{
     private String nome;
     private double salario;
     private ContaCorrente conta;
@@ -46,4 +46,6 @@ public class Pessoa {
     public void setSeguro(SeguroVida seguro) {
         this.seguro = seguro;
     }
+
+
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.imd.modelo.Pessoa;
+import br.ufrn.imd.controle.GeradorImpostoRenda;
 
 public class PessoaDAO {
     private List<Pessoa> pessoas;
@@ -28,11 +29,32 @@ public class PessoaDAO {
     }
 
     public double calcularTributosPessoas() {
-        // TODO
+        double total = 0.0;
+        GeradorImpostoRenda gerador = new GeradorImpostoRenda();
+
+        for (Pessoa pessoa : pessoas) {
+            total += gerador.CalcularValorTotalTributo(pessoa);
+        }
+        return total;
     }
 
     public void imprimeImpostoTotal() {
-        // TODO
+        GeradorImpostoRenda gerador = new GeradorImpostoRenda();
+        Pessoa maiorTributado = pessoas.get(0);
+        Pessoa maiorBeneficiado = pessoas.get(0);
+        for (Pessoa pessoa : pessoas) {
+            if(gerador.CalcularValorTotalTributo(pessoa) > gerador.CalcularValorTotalTributo(maiorTributado))
+            {
+                maiorTributado = pessoa;
+            }
+            if(pessoa.getSeguro().getValor() > maiorBeneficiado.getSeguro().getValor())
+            {
+                maiorBeneficiado = pessoa;
+            }
+        }
+        System.out.println("Tributos Totais: " + calcularTributosPessoas());
+        System.out.println("Maior Tributado: " + maiorTributado.getNome());
+        System.out.println("Maior Beneficiado pelo seguro: " + maiorBeneficiado.getNome());
     }
 
     public List<Pessoa> getPessoas() {
