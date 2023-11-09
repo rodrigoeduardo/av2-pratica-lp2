@@ -30,8 +30,10 @@ public class PessoaDAO {
 
     public double calcularTributosPessoas() {
         double total = 0.0;
+        //Instanciando o gerador
         GeradorImpostoRenda gerador = new GeradorImpostoRenda();
 
+        //Iterando e somando
         for (Pessoa pessoa : pessoas) {
             total += gerador.CalcularValorTotalTributo(pessoa);
         }
@@ -39,9 +41,12 @@ public class PessoaDAO {
     }
 
     public void imprimeImpostoTotal() {
+        //Instanciando o gerador de imposto, maior tributado e beneficiado (arbitrariamente como o primeiro)
         GeradorImpostoRenda gerador = new GeradorImpostoRenda();
         Pessoa maiorTributado = pessoas.get(0);
         Pessoa maiorBeneficiado = pessoas.get(0);
+
+        //Itera, sempre calculando o tributo total, se for maior, faz a troca do maiorTributado
         for (Pessoa pessoa : pessoas) {
             if(gerador.CalcularValorTotalTributo(pessoa) > gerador.CalcularValorTotalTributo(maiorTributado))
             {
@@ -52,6 +57,7 @@ public class PessoaDAO {
                 maiorBeneficiado = pessoa;
             }
         }
+        //Saida
         System.out.println("Tributos Totais: " + calcularTributosPessoas());
         System.out.println("Maior Tributado: " + maiorTributado.getNome());
         System.out.println("Maior Beneficiado pelo seguro: " + maiorBeneficiado.getNome());

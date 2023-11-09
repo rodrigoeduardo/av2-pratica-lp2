@@ -13,6 +13,7 @@ public class GeradorImpostoRenda {
 
     public double CalcularValorTotalTributo(Pessoa p)
     {
+        //Calcula e guarda o valor dos tributos conforme a questão pede
         setTotalTributo(p.getConta().calcularTributos() + p.getSeguro().calcularTributos() + (p.getSalario()*0.11));
         
         return getTotalTributo();
