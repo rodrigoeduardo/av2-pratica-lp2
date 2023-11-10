@@ -15,19 +15,26 @@ public class ContaCorrente implements ITributavel {
 
     public void sacar(double valor) {
         this.saldo -= valor;
+        System.out.printf("R$%.2f foi sacado da conta corrente de número %s.\n", valor, this.numero);
     }
 
     public void depositar(double valor) {
         this.saldo += valor;
+        System.out.printf("R$%.2f foi depositado na conta corrente de número %s.\n", valor, this.numero);
     }
 
     public boolean transferir(double valor, ContaCorrente cc) {
         double saldoFinal = this.saldo - valor;
 
-        if (saldoFinal < 0) return false;
+        if (saldoFinal < 0) {
+            System.out.printf("Não há saldo suficiente para realizar transferẽncia de R$%.2f.\n", valor);
+            return false;
+        }
 
         sacar(valor);
         cc.depositar(valor);
+
+        System.out.printf("R$%.2f foi transferido da conta corrente de número %s para a conta corrente de número %s.\n", valor, this.numero, cc.getNumero());
 
         return true;
     }

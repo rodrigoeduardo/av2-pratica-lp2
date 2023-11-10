@@ -15,10 +15,12 @@ public class PessoaDAO {
 
     public void cadastrarPessoa(Pessoa pessoa) {
         this.pessoas.add(pessoa);
+        System.out.println(pessoa.getNome() + " foi cadastrada.");
     }
 
     public void removerPessoa(Pessoa pessoa) {
         this.pessoas.remove(pessoa);
+        System.out.println(pessoa.getNome() + " foi removida.");
     }
 
     public void listarPessoas() {
